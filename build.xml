@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="test" name="JoeJensenOutputNull">
+        <target name="build">
+            <mkdir dir="bin"/>
+            <javac srcdir="src" destdir="bin"/>
+        </target>
+        <target name="test" depends="build">
+            <junit printsummary="yes">
+                <classpath>
+                        <fileset dir="lib" includes="**/*.jar"/>
+                        <pathelement location="bin"/>
+                </classpath>
+                <batchtest>
+                        <fileset dir="src">
+                                <include name="**/*Test.java"/>
+                        </fileset>
+                </batchtest>
+                <formatter type="plain" usefile="false"/>
+        </junit>
+        </target>
+</project>
